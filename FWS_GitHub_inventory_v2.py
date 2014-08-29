@@ -65,5 +65,5 @@ for items in listGitters:
         #print html
 ######  BOGUS OUTPUT #####  create --> output to Sharepoint
 for rows in listRepos:
-    print listRepos
+    print rows
     
