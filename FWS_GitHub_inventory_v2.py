@@ -10,7 +10,6 @@ tagOut = '" itemprop="url">'
 tagIn2  =  '<h3 class="repo-list-name">'
 tagOut2 =  '">'
 
-
 listGitters = []
 listRepos = []
 
@@ -36,14 +35,14 @@ if tagIn in html:
     print html[readStart:end]
     listGitters.append( html[readStart:end] )
 
-    html = html[readStart:]
+    html = html[readStart:]  #  the ol' fast forward trick, once through
 
+	#  Now iterate through all the members of the FWS Organization
 for items in listGitters:
     gitterHub = github +"/"+ items + gitRepoSuffix
-    #print gitterHub
     response = urllib2.urlopen(gitterHub)
     html = response.read()
-    #print html
+
     logical = True
     while logical:
         start = html.find(tagIn2)
@@ -55,7 +54,8 @@ for items in listGitters:
         print strRepo
         testRepo = AmIForked()
         print "forked:",testRepo
-        if not testRepo: listRepos.append([items,strRepo])
+        
+		if not testRepo: listRepos.append([items,strRepo])
 
         # Test for the last element on the page
         if tagIn2 in html:
@@ -63,7 +63,7 @@ for items in listGitters:
         else:
             logical = False
         #print html
-
+######  BOGUS OUTPUT #####  create --> output to Sharepoint
 for rows in listRepos:
     print listRepos
     
