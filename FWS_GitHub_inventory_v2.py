@@ -55,7 +55,7 @@ for items in listGitters:
         testRepo = AmIForked()
         print "forked:",testRepo
         
-		if not testRepo: listRepos.append([items,strRepo])
+        if not testRepo: listRepos.append([items,strRepo])
 
         # Test for the last element on the page
         if tagIn2 in html:
